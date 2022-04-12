@@ -13,16 +13,12 @@ const mode = [
 
 function pivotChoice(p) {
   var a, b;
-  let ran = Math.floor(Math.random() * 3);  // [0, 2]
+  let ran = Math.floor(Math.random() * 2);  // [0, 1]
   let i = Math.floor(Math.random()*p.length);  // [0, 4]
   switch (ran) {
-    case 2:
-      a = p[i];
-      b = p[(i + 4) % p.length];
-      break;
     case 1:
       a = p[i];
-      b = p[(i + 2) % p.length];
+      b = p[(i + 4) % p.length];
       break;
     default:
       a = p[0];
