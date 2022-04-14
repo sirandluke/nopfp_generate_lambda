@@ -4,7 +4,6 @@ const COLOR_API_ENDPOINT = 'https://www.thecolorapi.com/scheme?'
 const mode = [
   'monochrome',
   'monochrome-light',
-  'analogic',
   'complement',
   'analogic-complement',
   'triad',
@@ -18,7 +17,7 @@ function pivotChoice(p) {
   switch (ran) {
     case 1:
       a = p[i];
-      b = p[(i + 4) % p.length];
+      b = p[(i + 2) % p.length];
       break;
     default:
       a = p[0];
@@ -37,6 +36,7 @@ function choosePalette() {
   return new Promise((resolve, reject) => {
     let color = (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
     let url = COLOR_API_ENDPOINT + `hex=${color}&mode=${mode[Math.floor(Math.random()*mode.length)]}`
+    console.log(`mode: ${url}`)
     https.get(url, (response) => {
       let data = '';
       response.on('data', (chunk) => {
@@ -61,4 +61,4 @@ function choosePalette() {
   });
 }
 
-module.exports = { choosePalette };
+  module.exports = { choosePalette };

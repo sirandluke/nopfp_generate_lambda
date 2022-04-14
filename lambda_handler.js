@@ -35,6 +35,7 @@ function lambda_handler() {
     choosePalette().then(palette => {
       let a = palette.colorA;
       let b = palette.colorB;
+      log.info(`Color a|b: ${a}|${b}`)
 
       var pfpName = `${a.name.replace(' ', '_')}&${b.name.replace(' ', '_')}`;
       var fileName = pfpName + '.svg';
